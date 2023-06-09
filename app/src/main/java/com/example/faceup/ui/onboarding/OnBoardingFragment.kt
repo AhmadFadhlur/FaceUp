@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import com.example.faceup.R
 import com.example.faceup.databinding.FragmentOnBoardingBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class OnBoardingFragment : Fragment() {
@@ -28,5 +29,10 @@ class OnBoardingFragment : Fragment() {
         binding.btnOnBoarding.setOnClickListener {
             it.findNavController().navigate(R.id.action_onBoardingFragment_to_loginFragment)
         }
+        setBottomNav()
+    }
+    private fun setBottomNav(){
+        val navBar = activity?.findViewById<BottomNavigationView>(R.id.nav_view)
+        navBar?.visibility = View.GONE
     }
 }

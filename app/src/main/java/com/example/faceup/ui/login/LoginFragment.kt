@@ -16,6 +16,7 @@ import androidx.navigation.findNavController
 import com.example.faceup.R
 
 import com.example.faceup.databinding.FragmentLoginBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.regex.Pattern
 
 
@@ -62,6 +63,7 @@ class LoginFragment : Fragment() {
             playSequentially(login,loginDescription, emailText, emailEd, passText,passEd, btnLogin, dontHvAkunText, regisText)
             start()
         }
+        setBottomNav()
     }
     private fun passwordValidation(){
         binding.tiPassword.doOnTextChanged { text, start, before, count ->
@@ -94,5 +96,9 @@ class LoginFragment : Fragment() {
         binding.tvRegister.setOnClickListener {
             it.findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
+    }
+    private fun setBottomNav(){
+        val navBar = activity?.findViewById<BottomNavigationView>(R.id.nav_view)
+        navBar?.visibility = View.GONE
     }
 }
