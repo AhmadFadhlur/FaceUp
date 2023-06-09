@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.faceup.R
 import com.example.faceup.databinding.FragmentSplashScreenBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class SplashScreenFragment : Fragment() {
@@ -28,9 +29,15 @@ class SplashScreenFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setBottomNav()
         val time = 2000L
         Handler().postDelayed({
           findNavController().navigate(R.id.action_splashScreenFragment_to_onBoardingFragment)
         }, time)
+    }
+
+    private fun setBottomNav(){
+        val navBar = activity?.findViewById<BottomNavigationView>(R.id.nav_view)
+        navBar?.visibility = View.GONE
     }
 }

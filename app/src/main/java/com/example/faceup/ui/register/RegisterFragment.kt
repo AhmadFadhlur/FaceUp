@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.faceup.R
 import com.example.faceup.databinding.FragmentRegisterBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class RegisterFragment : Fragment() {
@@ -48,5 +50,10 @@ class RegisterFragment : Fragment() {
             playSequentially(register,registerDescription, tvnama,ednama,numberphone,ednumberphone, emailText, emailEd, passText,passEd, btnLogin)
             start()
         }
+        setBottomNav()
+    }
+    private fun setBottomNav(){
+        val navBar = activity?.findViewById<BottomNavigationView>(R.id.nav_view)
+        navBar?.visibility = View.GONE
     }
 }
