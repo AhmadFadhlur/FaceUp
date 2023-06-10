@@ -30,6 +30,8 @@ class RegisterFragment : Fragment() {
         playAnimation ()
     }
 
+
+
     private fun playAnimation (){
 
         val register = ObjectAnimator.ofFloat(binding.tvRegister, View.ALPHA, 1f).setDuration(250)
