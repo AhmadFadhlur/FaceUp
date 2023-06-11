@@ -12,4 +12,9 @@ class DataRepository (private val apiService: ApiService) {
             apiService.postLogin(email,password)
         }
 
+    suspend fun postRegist (email:String, password: String) : Resource<LoginResponse> =
+        proceed {
+            apiService.postRegister(email, password)
+        }
+
 }
