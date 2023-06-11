@@ -6,18 +6,44 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.homepage.HomePage">
 
+
+    <TextView
+        android:id="@+id/textHallo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/hello_name"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cvImageSlider"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="200dp"
         android:layout_margin="15dp"
+        android:layout_marginBottom="516dp"
         app:cardCornerRadius="5dp"
         app:cardElevation="7dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@id/textHallo"
+        app:layout_constraintVertical_bias="0.32">
+
+        <com.denzcoskun.imageslider.ImageSlider
+            android:id="@+id/image_slider"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/toska_variant"
+            app:iss_auto_cycle="true"
+            app:iss_delay="0"
+            app:iss_period="2000" />
     </androidx.cardview.widget.CardView>
 
 
