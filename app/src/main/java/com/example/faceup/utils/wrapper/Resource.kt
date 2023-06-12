@@ -21,18 +21,7 @@ suspend fun <T> proceed(coroutine: suspend () -> T): Resource<T> {
     return try {
         Resource.Success(coroutine.invoke())
     } catch (exception: Exception) {
-        when (exception) {
-            is HttpException -> {
-                val errorMessageResponseType = object : TypeToken<ResponseError>() {}.type
-                val error: ResponseError = Gson().fromJson(
-                    exception.response()?.errorBody()?.charStream(),
-                    errorMessageResponseType
-                )
-                Resource.Error(exception, error.message)
-            }
-            else -> {
-                Resource.Error(exception, exception.message)
-            }
+        Resource.Error(exception, exception.message)
+
         }
-    }
 }

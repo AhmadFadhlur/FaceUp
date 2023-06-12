@@ -10,13 +10,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doOnTextChanged
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.findNavController
 import com.example.faceup.R
 
 import com.example.faceup.databinding.FragmentLoginBinding
+import com.example.faceup.utils.StoreManager
+import com.example.faceup.utils.ViewModelFactory
+import com.example.faceup.utils.dataStore
+import com.example.faceup.utils.wrapper.Resource
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.launch
 import java.util.regex.Pattern
 
 
@@ -24,7 +35,10 @@ class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
-
+    private lateinit var storeManager: StoreManager
+    private val loginViewModel : LoginViewModel by viewModels {
+        ViewModelFactory(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,6 +54,7 @@ class LoginFragment : Fragment() {
         passwordValidation()
         playAnimation()
         toregister()
+        observeData()
     }
 
     private fun playAnimation (){
@@ -97,6 +112,42 @@ class LoginFragment : Fragment() {
             it.findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
     }
+
+    private fun observeData (){
+        binding.apply {
+            val email = tvEmail.text.toString()
+            val password = tvPassword.text.toString()
+            val dataStore : DataStore<Preferences> = requireContext().dataStore
+            storeManager = StoreManager.getInstance(dataStore)
+            btnLogin.setOnClickListener {btn ->
+                loginViewModel.Postlogin(email,password)
+                loginViewModel.login.observe(viewLifecycleOwner){
+                    if (it != null){
+                        when(it){
+                            is Resource.Error ->{
+                                Toast.makeText(requireContext(), "Gagal Register", Toast.LENGTH_LONG).show()
+                            }
+                            is Resource.Success -> {
+                                it?.data?.token?.let {tokenLogin ->
+                                    lifecycleScope.launch{
+                                        storeManager.saveToken(tokenLogin)
+                                    }
+                                }
+                                Toast.makeText(requireContext(), "Succsess Login", Toast.LENGTH_LONG).show()
+                                btn.findNavController().navigate(R.id.action_loginFragment_to_homePage)
+
+                            }
+                            is Resource.Loading -> {
+
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
     private fun setBottomNav(){
         val navBar = activity?.findViewById<BottomNavigationView>(R.id.nav_view)
         navBar?.visibility = View.GONE
