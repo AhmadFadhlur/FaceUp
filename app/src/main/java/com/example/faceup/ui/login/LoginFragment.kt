@@ -23,6 +23,7 @@ import androidx.navigation.findNavController
 import com.example.faceup.R
 
 import com.example.faceup.databinding.FragmentLoginBinding
+import com.example.faceup.network.models.login.LoginBody
 import com.example.faceup.utils.StoreManager
 import com.example.faceup.utils.ViewModelFactory
 import com.example.faceup.utils.dataStore
@@ -121,7 +122,7 @@ class LoginFragment : Fragment() {
                 val password = tiPassword.text.toString().trim()
                 val dataStore : DataStore<Preferences> = requireContext().dataStore
                 storeManager = StoreManager.getInstance(dataStore)
-                loginViewModel.Postlogin(email,password)
+                loginViewModel.Postlogin(LoginBody(email,password))
 
                 loginViewModel.login.observe(viewLifecycleOwner){
                     if (it != null){

@@ -7,18 +7,7 @@
     tools:context=".ui.register.RegisterFragment">
 
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tv_numberphone1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:fontFamily="@font/quesha"
-        android:text="Phone Number"
-        android:alpha="0"
-        android:textColor="@color/black_text"
-        android:textSize="32sp"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutNumberPhone"
-        app:layout_constraintStart_toStartOf="parent" />
+
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_name1"
@@ -42,12 +31,11 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
         android:hint="name"
-        android:alpha="0"
         app:counterEnabled="true"
         app:errorEnabled="true"
         app:helperText="Required*"
         app:helperTextTextColor="@color/red_warning"
-        app:layout_constraintBottom_toTopOf="@+id/tv_numberphone1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_loginDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,40 +48,14 @@
             android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutNumberPhone"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        app:prefixText="+62"
-        android:alpha="0"
-        android:layout_marginBottom="16dp"
-        android:hint="+62 123456"
-        app:errorEnabled="true"
-        app:helperText="Required*"
-        app:helperTextTextColor="@color/red_warning"
-        app:layout_constraintBottom_toTopOf="@+id/tv_email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:startIconDrawable="@drawable/ic_contact_phone_24">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ti_phone_number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="48dp"
-        android:alpha="0"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="232dp"
+
         android:fontFamily="@font/monsier"
         android:text="@string/register"
         android:textColor="@color/black"
@@ -106,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:alpha="0"
+
         android:fontFamily="@font/dreamy_romantic"
         android:text="@string/login_desc"
         android:textColor="@color/black_text"
@@ -121,7 +83,7 @@
         android:layout_marginStart="32dp"
         android:fontFamily="@font/quesha"
         android:text="@string/email"
-        android:alpha="0"
+
         android:textColor="@color/black_text"
         android:textSize="32sp"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayoutEmail"
@@ -149,7 +111,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
         android:hint="@string/email_example"
-        android:alpha="0"
+
         app:counterEnabled="true"
         app:errorEnabled="true"
         app:errorIconDrawable="@drawable/ic_error_24"
@@ -177,7 +139,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:alpha="0"
+
         android:layout_marginBottom="32dp"
         android:hint="@string/pass_hint"
         app:counterEnabled="true"
@@ -206,7 +168,7 @@
         android:layout_marginBottom="36dp"
         android:background="@drawable/ripple"
         android:fontFamily="@font/monsier"
-        android:alpha="0"
+
         android:text="@string/login"
         android:textSize="20sp"
         app:backgroundTint="@color/sky_blue"
