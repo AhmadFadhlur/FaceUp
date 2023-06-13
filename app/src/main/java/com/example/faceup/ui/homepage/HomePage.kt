@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import com.example.faceup.R
 import com.example.faceup.databinding.FragmentHomePageBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class HomePage : Fragment() {
@@ -27,6 +28,12 @@ class HomePage : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val nama = navArgs.name.toString()
         binding.tvName.text = nama
+        setBottomNav()
+    }
+
+    private fun setBottomNav(){
+        val navBar = activity?.findViewById<BottomNavigationView>(R.id.nav_view)
+        navBar?.visibility = View.VISIBLE
     }
 
 }
