@@ -38,7 +38,7 @@ class SplashScreenFragment : Fragment() {
     }
 
     private fun setBottomNav(){
-        val navBar = activity?.findViewById<BottomNavigationView>(R.id.botNavView)
+        val navBar = activity?.findViewById<BottomNavigationView>(R.id.nav_view)
         navBar?.visibility = View.GONE
     }
 }
