@@ -6,13 +6,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.homepage.HomePage">
 
+    <ImageView
+        android:layout_width="33dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/notificon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.928"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="37dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/profileicon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textHallo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
-        android:fontFamily="sans-serif-black"
+        android:fontFamily="@font/codec"
         android:text="@string/hello_name"
         android:textColor="@color/black"
         android:textSize="30sp"
@@ -21,31 +40,79 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:fontFamily="@font/barlow"
+        android:text="How are you today?"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cvImageSlider"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:layout_margin="15dp"
+        android:layout_width="357dp"
+        android:layout_height="245dp"
+        android:layout_margin="20dp"
         android:layout_marginBottom="516dp"
-        app:cardCornerRadius="5dp"
+        app:cardCornerRadius="40dp"
         app:cardElevation="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/textHallo"
-        app:layout_constraintVertical_bias="0.32">
+        app:layout_constraintVertical_bias="0.17000002">
 
-<!--        <com.denzcoskun.imageslider.ImageSlider-->
-<!--            android:id="@+id/image_slider"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:background="@color/toska_variant"-->
-<!--            app:iss_auto_cycle="true"-->
-<!--            app:iss_delay="0"-->
-<!--            app:iss_period="2000" />-->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/bg_cv_scan"/>
     </androidx.cardview.widget.CardView>
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="174dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="27dp"
+        app:cardBackgroundColor="@color/light_pink"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cardView2"
+        app:layout_constraintTop_toBottomOf="@+id/cvImageSlider" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Informasi Tentang Jenis Jerawat"
+            android:fontFamily="@font/codec"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="174dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="7dp"
+        app:cardBackgroundColor="@color/light_pink"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/cardView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvImageSlider" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.faceup.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -19,6 +21,11 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragContainerView) as NavHostFragment
         val navController = navHostFragment.navController
 
+        val appBarConfiguration = AppBarConfiguration.Builder(
+            R.id.homePage, R.id.cameraFragment, R.id.profileFragment,
+        ).build()
+
+        setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
 }

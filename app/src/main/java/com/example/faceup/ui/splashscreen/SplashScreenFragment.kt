@@ -34,6 +34,7 @@ class SplashScreenFragment : Fragment() {
         Handler().postDelayed({
           findNavController().navigate(R.id.action_splashScreenFragment_to_onBoardingFragment)
         }, time)
+        setBottomNav()
     }
 
     private fun setBottomNav(){

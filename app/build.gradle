@@ -50,6 +50,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.6.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.6.0'
 
+    //image slider
     implementation 'com.github.denzcoskun:ImageSlideshow:0.1.2'
 
     // retrofit
@@ -69,5 +70,6 @@ dependencies {
 
     // data store preferences
     implementation "androidx.datastore:datastore-preferences:1.0.0"
+
 
 }
