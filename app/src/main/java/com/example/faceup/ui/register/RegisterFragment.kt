@@ -7,8 +7,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import com.example.faceup.R
 import com.example.faceup.databinding.FragmentRegisterBinding
+import com.example.faceup.network.models.register.RegisterBody
+import com.example.faceup.utils.ViewModelFactory
+import com.example.faceup.utils.wrapper.Resource
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -16,6 +22,9 @@ class RegisterFragment : Fragment() {
 
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
+    private val registerViewModel : RegisterViewModel by viewModels {
+        ViewModelFactory(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +37,7 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         playAnimation ()
+        observeDataRegister()
     }
 
 
@@ -44,7 +54,7 @@ class RegisterFragment : Fragment() {
         val emailEd = ObjectAnimator.ofFloat(binding.textInputLayoutEmail, View.ALPHA, 1f).setDuration(250)
         val passText = ObjectAnimator.ofFloat(binding.tvPassword, View.ALPHA, 1f).setDuration(250)
         val passEd = ObjectAnimator.ofFloat(binding.textInputLayoutPassword, View.ALPHA, 1f).setDuration(250)
-        val btnLogin = ObjectAnimator.ofFloat(binding.btnLogin, View.ALPHA, 1f).setDuration(250)
+        val btnLogin = ObjectAnimator.ofFloat(binding.btnRegister, View.ALPHA, 1f).setDuration(250)
 //        val dontHvAkunText = ObjectAnimator.ofFloat(binding.tvDontHa, View.ALPHA, 1f).setDuration(250)
 //        val regisText = ObjectAnimator.ofFloat(binding.tvRegister, View.ALPHA, 1f).setDuration(250)
 
@@ -54,6 +64,45 @@ class RegisterFragment : Fragment() {
         }
         setBottomNav()
     }
+
+    private fun observeDataRegister (){
+        binding.apply {
+            btnRegister.setOnClickListener { btn ->
+                val nama = tiName.text.toString().trim()
+                val email = tiEmail.text.toString().trim()
+                val password = tiPassword.text.toString().toString()
+                registerViewModel.postRegist(RegisterBody(nama, email, password))
+                registerViewModel.regist.observe(viewLifecycleOwner){
+                    if (it != null){
+                        when(it){
+                            is Resource.Error -> {
+
+                            }
+                            is Resource.Loading -> {
+
+
+                            }
+
+                            is Resource.Success -> {
+                                val data = it.data
+                                if (data != null){
+                                    if (data?.error == true){
+                                        Toast.makeText(requireContext(), "Gagal Register", Toast.LENGTH_LONG).show()
+                                    } else{
+                                        Toast.makeText(requireContext(), "Sign Up berhasil, silahkan login!", Toast.LENGTH_LONG).show()
+                                        btn.findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
     private fun setBottomNav(){
         val navBar = activity?.findViewById<BottomNavigationView>(R.id.botNavView)
         navBar?.visibility = View.GONE

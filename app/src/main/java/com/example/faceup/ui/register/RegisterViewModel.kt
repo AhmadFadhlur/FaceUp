@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.faceup.data.repository.DataRepository
+import com.example.faceup.network.models.register.RegisterBody
 import com.example.faceup.network.models.register.RegisterResponse
 import com.example.faceup.utils.wrapper.Resource
 import kotlinx.coroutines.Dispatchers
@@ -16,11 +17,11 @@ class RegisterViewModel(private val repository: DataRepository)  : ViewModel(){
     private var _regist = MutableLiveData<Resource<RegisterResponse>>()
     val regist : LiveData<Resource<RegisterResponse>> = _regist
 
-    fun postRegist (nama:String,email:String, password:String) {
+    fun postRegist (registerBody: RegisterBody) {
         viewModelScope.launch (Dispatchers.IO){
             delay(1000)
             viewModelScope.launch (Dispatchers.Main){
-                _regist.postValue(repository.postRegist(nama,email, password))
+                _regist.postValue(repository.postRegist(registerBody))
             }
         }
 

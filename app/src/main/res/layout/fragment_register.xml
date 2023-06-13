@@ -185,7 +185,7 @@
         app:errorEnabled="true"
         app:helperText="Required*"
         app:helperTextTextColor="@color/red_warning"
-        app:layout_constraintBottom_toTopOf="@+id/btn_login"
+        app:layout_constraintBottom_toTopOf="@+id/btn_register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -199,7 +199,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_register"
         android:layout_width="250dp"
         android:layout_height="40dp"
         android:layout_marginStart="80dp"
@@ -212,33 +212,5 @@
         app:backgroundTint="@color/sky_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <!--    <com.google.android.material.textview.MaterialTextView-->
-<!--        android:id="@+id/tv_dont_ha"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="32dp"-->
-<!--        android:layout_marginStart="104dp"-->
-<!--        android:layout_marginBottom="16dp"-->
-<!--        android:fontFamily="@font/quesha"-->
-<!--        android:text="@string/dont_have_account"-->
-
-<!--        android:textColor="@color/black_text"-->
-<!--        android:textSize="24sp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent" />-->
-
-<!--    <com.google.android.material.textview.MaterialTextView-->
-<!--        android:id="@+id/tv_register"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="32dp"-->
-<!--        android:layout_marginStart="8dp"-->
-<!--        android:layout_marginBottom="10dp"-->
-<!--        android:fontFamily="@font/monsier"-->
-<!--        android:text="@string/register"-->
-
-<!--        android:textColor="@color/black"-->
-<!--        android:textSize="12sp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/tv_dont_ha" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

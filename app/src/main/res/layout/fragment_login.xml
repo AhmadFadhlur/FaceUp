@@ -168,7 +168,7 @@
         android:fontFamily="@font/monsier"
         android:text="@string/register"
         android:alpha="0"
-        android:textColor="@color/black"
+        android:textColor="#2363FF"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_dont_ha" />
