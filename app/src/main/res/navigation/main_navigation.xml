@@ -47,7 +47,13 @@
         android:id="@+id/homePage"
         android:name="com.example.faceup.ui.homepage.HomePage"
         android:label="fragment_home_page"
-        tools:layout="@layout/fragment_home_page" />
+        tools:layout="@layout/fragment_home_page" >
+        <argument
+            android:name="name"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue='nama' />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.faceup.ui.settings.SettingsFragment"

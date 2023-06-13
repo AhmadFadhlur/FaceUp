@@ -55,7 +55,7 @@ class RegisterFragment : Fragment() {
         setBottomNav()
     }
     private fun setBottomNav(){
-        val navBar = activity?.findViewById<BottomNavigationView>(R.id.nav_view)
+        val navBar = activity?.findViewById<BottomNavigationView>(R.id.botNavView)
         navBar?.visibility = View.GONE
     }
 }

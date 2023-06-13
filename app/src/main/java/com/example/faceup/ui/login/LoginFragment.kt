@@ -5,6 +5,7 @@ import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -115,26 +116,35 @@ class LoginFragment : Fragment() {
 
     private fun observeData (){
         binding.apply {
-            val email = tvEmail.text.toString()
-            val password = tvPassword.text.toString()
-            val dataStore : DataStore<Preferences> = requireContext().dataStore
-            storeManager = StoreManager.getInstance(dataStore)
-            btnLogin.setOnClickListener {btn ->
+            btnLogin.setOnClickListener { btn ->
+                val email = tiEmail.text.toString().trim()
+                val password = tiPassword.text.toString().trim()
+                val dataStore : DataStore<Preferences> = requireContext().dataStore
+                storeManager = StoreManager.getInstance(dataStore)
                 loginViewModel.Postlogin(email,password)
+
                 loginViewModel.login.observe(viewLifecycleOwner){
                     if (it != null){
                         when(it){
                             is Resource.Error ->{
-                                Toast.makeText(requireContext(), "Gagal Register", Toast.LENGTH_LONG).show()
+
                             }
                             is Resource.Success -> {
-                                it?.data?.token?.let {tokenLogin ->
-                                    lifecycleScope.launch{
-                                        storeManager.saveToken(tokenLogin)
-                                    }
+                                val data = it.data
+                                if (data?.error == true) {
+                                    Toast.makeText(requireContext(), "Login Failed", Toast.LENGTH_LONG).show()
                                 }
-                                Toast.makeText(requireContext(), "Succsess Login", Toast.LENGTH_LONG).show()
-                                btn.findNavController().navigate(R.id.action_loginFragment_to_homePage)
+                                else{
+                                    data?.token?.let {tokenLogin ->
+                                        lifecycleScope.launch{
+                                            storeManager.saveToken(tokenLogin)
+                                        }
+                                    }
+                                    Toast.makeText(requireContext(), "Succsess Login", Toast.LENGTH_LONG).show()
+                                    val action  = LoginFragmentDirections.actionLoginFragmentToHomePage(data?.nama.toString())
+                                    btn.findNavController().navigate(action)
+                                }
+
 
                             }
                             is Resource.Loading -> {
@@ -149,7 +159,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun setBottomNav(){
-        val navBar = activity?.findViewById<BottomNavigationView>(R.id.nav_view)
+        val navBar = activity?.findViewById<BottomNavigationView>(R.id.botNavView)
         navBar?.visibility = View.GONE
     }
 }

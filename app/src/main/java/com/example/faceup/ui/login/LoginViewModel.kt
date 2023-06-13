@@ -1,11 +1,12 @@
 package com.example.faceup.ui.login
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.faceup.data.repository.DataRepository
-import com.example.faceup.network.models.LoginResponse
+import com.example.faceup.network.models.login.LoginResponse
 import com.example.faceup.utils.wrapper.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -17,6 +18,7 @@ class LoginViewModel(private val dataRepository: DataRepository): ViewModel() {
     val login : LiveData<Resource<LoginResponse>> get() = _login
 
     fun Postlogin(email:String, password:String){
+        Log.e("Login Fragmen" , "email: $email password: $password")
         viewModelScope.launch(Dispatchers.IO) {
             delay(1000)
             val response = dataRepository.postLogin(email, password)

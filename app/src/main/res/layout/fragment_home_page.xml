@@ -28,31 +28,43 @@
 
     <TextView
         android:id="@+id/textHallo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="78dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="96dp"
         android:fontFamily="@font/codec"
         android:text="@string/hello_name"
         android:textColor="@color/black"
         android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.118"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textWelcome"
+        android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="96dp"
+        android:fontFamily="@font/codec"
+        android:text="name"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@id/textHallo"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="328dp" />
+
+    <TextView
+        android:id="@+id/textWelcome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="6dp"
         android:fontFamily="@font/barlow"
         android:text="How are you today?"
         android:textColor="@color/black"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/textHallo" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvImageSlider"
