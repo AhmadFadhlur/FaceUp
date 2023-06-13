@@ -12,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doOnTextChanged
 import androidx.datastore.core.DataStore
@@ -128,9 +129,11 @@ class LoginFragment : Fragment() {
                     if (it != null){
                         when(it){
                             is Resource.Error ->{
-
+                                binding.pbLogin.isVisible = false
+                                Toast.makeText(context, it.message, Toast.LENGTH_LONG).show()
                             }
                             is Resource.Success -> {
+                                pbLogin.isVisible = true
                                 val data = it.data
                                 if (data?.error == true) {
                                     Toast.makeText(requireContext(), "Login Failed", Toast.LENGTH_LONG).show()
@@ -138,6 +141,7 @@ class LoginFragment : Fragment() {
                                 else{
                                     data?.token?.let {tokenLogin ->
                                         lifecycleScope.launch{
+                                            Log.i("LoginFragment", "token: $tokenLogin")
                                             storeManager.saveToken(tokenLogin)
                                         }
                                     }
@@ -149,11 +153,10 @@ class LoginFragment : Fragment() {
 
                             }
                             is Resource.Loading -> {
-
+                                pbLogin.isVisible = true
                             }
                         }
                     }
-
                 }
             }
         }
