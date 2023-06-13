@@ -29,7 +29,6 @@ class SplashScreenFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setBottomNav()
         val time = 2000L
         Handler().postDelayed({
           findNavController().navigate(R.id.action_splashScreenFragment_to_onBoardingFragment)

@@ -48,8 +48,6 @@ class RegisterFragment : Fragment() {
         val registerDescription = ObjectAnimator.ofFloat(binding.tvLoginDescription, View.ALPHA, 1f).setDuration(250)
         val tvnama = ObjectAnimator.ofFloat(binding.tvName1, View.ALPHA, 1f).setDuration(250)
         val ednama = ObjectAnimator.ofFloat(binding.textInputLayoutName, View.ALPHA, 1f).setDuration(250)
-        val numberphone = ObjectAnimator.ofFloat(binding.tvNumberphone1, View.ALPHA, 1f).setDuration(250)
-        val ednumberphone = ObjectAnimator.ofFloat(binding.textInputLayoutNumberPhone, View.ALPHA, 1f).setDuration(250)
         val emailText  = ObjectAnimator.ofFloat(binding.tvEmail, View.ALPHA, 1f).setDuration(250)
         val emailEd = ObjectAnimator.ofFloat(binding.textInputLayoutEmail, View.ALPHA, 1f).setDuration(250)
         val passText = ObjectAnimator.ofFloat(binding.tvPassword, View.ALPHA, 1f).setDuration(250)
@@ -59,7 +57,7 @@ class RegisterFragment : Fragment() {
 //        val regisText = ObjectAnimator.ofFloat(binding.tvRegister, View.ALPHA, 1f).setDuration(250)
 
         AnimatorSet().apply {
-            playSequentially(register,registerDescription, tvnama,ednama,numberphone,ednumberphone, emailText, emailEd, passText,passEd, btnLogin)
+            playSequentially(register,registerDescription, tvnama,ednama, emailText, emailEd, passText,passEd, btnLogin)
             start()
         }
         setBottomNav()
