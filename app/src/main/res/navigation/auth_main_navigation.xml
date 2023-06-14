@@ -25,6 +25,9 @@
             app:destination="@id/homePage"
             app:popUpTo="@id/main_navigation"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_homePageActivity"
+            app:destination="@id/homePageActivity" />
     </fragment>
     <fragment
         android:id="@+id/onBoardingFragment"
@@ -50,6 +53,9 @@
             app:destination="@id/homePage"
             app:popUpTo="@id/main_navigation"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_homePageActivity"
+            app:destination="@id/homePageActivity" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -96,5 +102,18 @@
         android:id="@+id/detailFragment2"
         android:name="com.example.faceup.ui.detail.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment2_to_bottomSheetProductFragment"
+            app:destination="@id/bottomSheetProductFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/bottomSheetProductFragment"
+        android:name="com.example.faceup.ui.bottomsheet.BottomSheetProductFragment"
+        android:label="BottomSheetProductFragment" />
+    <activity
+        android:id="@+id/homePageActivity"
+        android:name="com.example.faceup.ui.activity.HomePageActivity"
+        android:label="activity_home_page"
+        tools:layout="@layout/activity_home_page" />
 </navigation>

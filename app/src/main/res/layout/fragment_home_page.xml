@@ -115,12 +115,11 @@
             android:id="@+id/buttonFloatCam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
             android:layout_gravity="bottom"
-            android:src="@drawable/cameraicon"
             android:layout_marginStart="20dp"
             android:layout_marginBottom="10dp"
-            />
+            android:backgroundTint="@color/white"
+            android:src="@drawable/cameraicon" />
 
         <ImageView
             android:layout_width="106dp"

@@ -11,6 +11,7 @@ import com.example.faceup.databinding.FragmentHomePageBinding
 import com.example.faceup.ui.profile.ProfileFragment
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
@@ -41,10 +42,11 @@ class HomePage : Fragment() {
         }
     }
 
+
     private fun setBottomNav(){
         val botAppbar = activity?.findViewById<BottomAppBar>(R.id.bottomAppBar)
         botAppbar?.visibility = View.VISIBLE
-        val floatButton = activity?.findViewById<FloatingActionButton>(R.id.buttonCamera)
+        val floatButton = activity?.findViewById<FloatingActionButton>(R.id.fab_buttonCamera)
         floatButton?.visibility = View.VISIBLE
     }
 

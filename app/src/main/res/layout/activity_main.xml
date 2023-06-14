@@ -5,18 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragContainerView"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:navGraph="@navigation/main_navigation"
-        app:defaultNavHost="true" />
+    tools:context=".ui.activity.MainActivity">
 
 
-<!--    <androidx.fragment.app.FragmentContainerView-->
+    <!--    <androidx.fragment.app.FragmentContainerView-->
 <!--        android:id="@+id/fragContainerView"-->
 <!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
 <!--        android:layout_width="match_parent"-->
@@ -27,6 +19,14 @@
 <!--        app:layout_constraintRight_toRightOf="parent"-->
 <!--        app:layout_constraintBottom_toTopOf="@+id/nav_view"-->
 <!--        app:layout_constraintTop_toTopOf="parent"/>-->
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragContainerView"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/auth_main_navigation" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
@@ -64,14 +64,13 @@
 <!--        app:menu="@menu/menu"/>-->
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/buttonCamera"
+        android:id="@+id/fab_buttonCamera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:backgroundTint="@color/white"
-        app:layout_anchor="@id/bottomAppBar"
         android:src="@drawable/cameraicon"
         android:tint="@color/light_pink"
-        />
+        app:layout_anchor="@id/bottomAppBar" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
