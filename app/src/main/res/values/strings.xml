@@ -26,4 +26,6 @@
     <string name="hello_name">Hello</string>
     <string name="profile">Profile</string>
     <string name="history">History</string>
+    <string name="sentuk_untuk_memulai_scan">Sentuk Untuk Memulai Scan</string>
+    <string name="kenali_jerawatmu_cegah_agar_tidak_lebih_parah">Kenali Jerawatmu Cegah Agar Tidak Lebih Parah!</string>
 </resources>

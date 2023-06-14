@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import com.example.faceup.R
 import com.example.faceup.databinding.FragmentOnBoardingBinding
+import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class OnBoardingFragment : Fragment() {
@@ -32,7 +34,9 @@ class OnBoardingFragment : Fragment() {
         setBottomNav()
     }
     private fun setBottomNav(){
-        val navBar = activity?.findViewById<BottomNavigationView>(R.id.nav_view)
-        navBar?.visibility = View.GONE
+        val botAppbar = activity?.findViewById<BottomAppBar>(R.id.bottomAppBar)
+        botAppbar?.visibility = View.GONE
+        val floatButton = activity?.findViewById<FloatingActionButton>(R.id.buttonCamera)
+        floatButton?.visibility = View.GONE
     }
 }

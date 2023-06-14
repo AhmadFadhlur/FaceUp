@@ -15,7 +15,9 @@ import com.example.faceup.databinding.FragmentRegisterBinding
 import com.example.faceup.network.models.register.RegisterBody
 import com.example.faceup.utils.ViewModelFactory
 import com.example.faceup.utils.wrapper.Resource
+import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class RegisterFragment : Fragment() {
@@ -102,7 +104,9 @@ class RegisterFragment : Fragment() {
     }
 
     private fun setBottomNav(){
-        val navBar = activity?.findViewById<BottomNavigationView>(R.id.nav_view)
-        navBar?.visibility = View.GONE
+        val botAppbar = activity?.findViewById<BottomAppBar>(R.id.bottomAppBar)
+        botAppbar?.visibility = View.GONE
+        val floatButton = activity?.findViewById<FloatingActionButton>(R.id.buttonCamera)
+        floatButton?.visibility = View.GONE
     }
 }

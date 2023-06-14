@@ -74,6 +74,7 @@
         android:layout_marginBottom="516dp"
         app:cardCornerRadius="40dp"
         app:cardElevation="7dp"
+        android:backgroundTint="@color/pink_cardview"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -81,10 +82,53 @@
         app:layout_constraintTop_toTopOf="@id/textHallo"
         app:layout_constraintVertical_bias="0.17000002">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:fontFamily="@font/codec"
+            android:textSize="30sp"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:lineSpacingExtra="10dp"
+            android:text="@string/sentuk_untuk_memulai_scan"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:fontFamily="@font/barlow"
+            android:textSize="12sp"
+            android:text="@string/kenali_jerawatmu_cegah_agar_tidak_lebih_parah"
+            android:layout_marginTop="110dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:lineSpacingExtra="10dp"
+            />
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/bg_cv_scan"/>
+            android:src="@drawable/stars"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/buttonFloatCam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:layout_gravity="bottom"
+            android:src="@drawable/cameraicon"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="10dp"
+            />
+
+        <ImageView
+            android:layout_width="106dp"
+            android:layout_height="101dp"
+            android:layout_gravity="bottom|end"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="9dp"
+            android:src="@drawable/icon_mbamba" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
