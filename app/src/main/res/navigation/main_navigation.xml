@@ -70,6 +70,9 @@
             app:argType="string"
             app:nullable="true"
             android:defaultValue='nama' />
+        <action
+            android:id="@+id/action_homePage_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"

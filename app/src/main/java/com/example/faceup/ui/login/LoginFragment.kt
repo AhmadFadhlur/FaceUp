@@ -29,7 +29,9 @@ import com.example.faceup.utils.StoreManager
 import com.example.faceup.utils.ViewModelFactory
 import com.example.faceup.utils.dataStore
 import com.example.faceup.utils.wrapper.Resource
+import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.launch
 import java.util.regex.Pattern
 
@@ -163,8 +165,10 @@ class LoginFragment : Fragment() {
     }
 
     private fun setBottomNav(){
-        val navBar = activity?.findViewById<BottomNavigationView>(R.id.nav_view)
-        navBar?.visibility = View.GONE
+        val botAppbar = activity?.findViewById<BottomAppBar>(R.id.bottomAppBar)
+        botAppbar?.visibility = View.GONE
+        val floatButton = activity?.findViewById<FloatingActionButton>(R.id.buttonCamera)
+        floatButton?.visibility = View.GONE
     }
     override fun onDestroyView() {
         super.onDestroyView()
