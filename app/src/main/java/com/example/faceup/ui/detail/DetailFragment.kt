@@ -6,13 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.faceup.R
+import com.example.faceup.databinding.FragmentDetailBinding
 import com.example.faceup.databinding.FragmentRegisterBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 
 class DetailFragment : Fragment() {
 
-    private var _binding: FragmentRegisterBinding? = null
+    private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
     lateinit var dialogBottomSheet : BottomSheetDialog
 
@@ -21,13 +22,14 @@ class DetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentRegisterBinding.inflate(layoutInflater)
+        _binding = FragmentDetailBinding.inflate(layoutInflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         showBottomSheet()
+
 
     }
     private fun showBottomSheet(){

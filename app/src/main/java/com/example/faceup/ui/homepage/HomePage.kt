@@ -1,13 +1,14 @@
 package com.example.faceup.ui.homepage
 
 import android.os.Bundle
+import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.faceup.R
 import com.example.faceup.databinding.FragmentHomePageBinding
+import com.example.faceup.ui.profile.ProfileFragment
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -31,6 +32,13 @@ class HomePage : Fragment() {
         val nama = navArgs.name.toString()
         binding.tvName.text = nama
         setBottomNav()
+        moveToDetail()
+    }
+
+    private fun moveToDetail (){
+        binding.buttonFloatCam.setOnClickListener {
+            findNavController().navigate(R.id.detailFragment2)
+        }
     }
 
     private fun setBottomNav(){
