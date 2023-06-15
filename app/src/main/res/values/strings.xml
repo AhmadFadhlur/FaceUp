@@ -63,8 +63,8 @@
 
 
     <!--desc penanganan pustules jerawat -->
-    <string name="pen_pustules_1">Benzoyl Peroxide kills bacteria, unclogs pores, and helps with inflammation.</string>
-    <string name="pen_pustules_2">Salicylic Acid helps clear away dead skin cells, often found in face washes.</string>
+    <string name="pen_pustules_1">Benzoyl Peroxide kills bacteria, unclogs pores.</string>
+    <string name="pen_pustules_2">Salicylic Acid helps clear away dead skin cells.</string>
     <string name="pen_pustules_3">Adapalane treats acne by helping to prevent blocked pores</string>
     <string name="pen_pustules_4">Isotretinoin is made from vitamin A</string>
 
@@ -72,8 +72,10 @@
     <!--desc penanganan whitehead jerawat -->
     <string name="pen_whitehead_1">Benzoyl Peroxide kills bacteria, unclogs pores</string>
     <string name="pen_whitehead_2">alicylic Acid helps clear away dead skin cells</string>
-    <string name="pen_whitehead_3">Witch hazel is a natural astringent that help the skin cells to shrink</string>
+    <string name="pen_whitehead_3">Witch hazel is natural astringent to help the skin cells to shrink</string>
     <string name="pen_whitehead_4">Isotretinoin is made from vitamin A</string>
+
+
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non lectus porta, gravida nisl et, consectetur ipsum. Ut hendrerit lacus ex, varius tristique massa posuere ullamcorper. Aenean in rhoncus tortor. Sed ullamcorper, magna non molestie dictum, turpis erat commodo lectus, eget dapibus augue mauris euismod nunc.</string>
 
 

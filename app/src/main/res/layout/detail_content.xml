@@ -166,58 +166,53 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_penanganan1"
-        style="@style/TextAppearance.Material3.BodyLarge"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/quesha"
-        android:text="TextView"
+        android:layout_marginTop="13dp"
+        android:fontFamily="@font/codec"
+        android:textSize="11.5sp"
+        android:text="Witch hazel is natural astringent to help the skin cells to shrink"
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/tv_pen" />
 
     <TextView
         android:id="@+id/tv_penanganan2"
-        style="@style/TextAppearance.Material3.BodyLarge"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/codec"
         android:text="TextView"
+        android:textSize="11.5sp"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/tv_penanganan1" />
 
     <TextView
         android:id="@+id/tv_penanganan3"
-        style="@style/TextAppearance.Material3.BodyLarge"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="11dp"
+        android:fontFamily="@font/codec"
         android:text="TextView"
+        android:textSize="11.5sp"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/tv_penanganan2" />
 
     <TextView
         android:id="@+id/tv_penanganan4"
-        style="@style/TextAppearance.Material3.BodyLarge"
-        android:layout_width="wrap_content"
+
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/codec"
         android:text="TextView"
+        android:textSize="11.5sp"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/tv_penanganan3" />
 
-    <Button
-        android:id="@+id/btn_scan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:text="scan"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_ppDetail" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
