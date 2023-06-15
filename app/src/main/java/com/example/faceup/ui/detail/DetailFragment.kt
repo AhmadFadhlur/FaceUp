@@ -19,18 +19,13 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import androidx.navigation.NavArgs
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.faceup.R
 import com.example.faceup.databinding.FragmentDetailBinding
-import com.example.faceup.ui.bottomsheet.product.adapter.ProductAdapter
 import com.example.faceup.utils.*
 import com.example.faceup.utils.wrapper.Resource
 import com.google.android.material.bottomappbar.BottomAppBar
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.File
 
@@ -60,8 +55,11 @@ class DetailFragment : Fragment() {
             if (result==null){
                 Log.e("Camera" , "Tidak ada file camera")
             }
-            binding.imgPpDetail.setImageBitmap(result)
+            with(binding.layoutDetailContent){
+                imgPpDetail.setImageBitmap(result)
+            }
             uploadImage()
+
         }
     }
     private val launcherIntentGallery = registerForActivityResult(
@@ -72,7 +70,11 @@ class DetailFragment : Fragment() {
             val myFile = uriToFile(selectedImg, requireContext())
 
             getFile = myFile
-            binding.imgPpDetail.setImageURI(selectedImg)
+
+            with(binding.layoutDetailContent){
+                imgPpDetail.setImageURI(selectedImg)
+            }
+
             uploadImage()
         }
     }
@@ -89,7 +91,7 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        showLoading(false)
+        showLoading(true)
         setBottomNav()
         showBottomSheet()
         chosePicture()
@@ -106,37 +108,12 @@ class DetailFragment : Fragment() {
             } else {
                 Toast.makeText(requireContext(),"Gambar null" ,Toast.LENGTH_SHORT).show()
             }
-//            getFile?.let {
-//                imageMultipart(it).let { filemultiPart ->
-//                    run {
-//                        detailViewModel.postPredictDetail(filemultiPart)
-//                        observeDataDetail()
-//                    }
-//                }
-//            }
-
-
     }
 
     private fun showLoading(boolean : Boolean){
-        binding.apply {
-            imgPpDetail.isVisible = boolean
-            tvPen.isVisible = boolean
-            tvDes.isVisible = boolean
-            tvTittleJenisJerawat.isVisible = boolean
-            tvPenanganan1.isVisible = boolean
-            tvPenanganan2.isVisible = boolean
-            tvPenanganan3.isVisible = boolean
-            tvPenanganan4.isVisible = boolean
-            textView3.isVisible = boolean
-            textView4.isVisible = boolean
-            textView5.isVisible = boolean
-            textView6.isVisible = boolean
-            extendedFabBuyRecomenProdcut.isVisible = boolean
-            extendedFabBuyRecomenProdcut.isVisible = boolean
+        binding.layoutDetailContentShimmer.isVisible = boolean
+        binding.layoutDetailContent.constarintLayout.isVisible = !boolean
 
-
-        }
     }
 
     private fun observeDataDetail(){
@@ -146,68 +123,69 @@ class DetailFragment : Fragment() {
                     when (it) {
                         is Resource.Loading -> {
 //                            pbDetail.visibility = View.VISIBLE
-                            showLoading(false)
 
                         }
                         is Resource.Error -> {
                             Log.e("Error" ,it.message.toString())
                         }
                         is Resource.Success -> {
-                            pbDetailPredict.visibility = View.GONE
-                            showLoading(true)
-                            val data = it.data
-                            when (data?.predictedClass) {
-                                // 0. Blackhead
-                                0 -> {
-                                    tvTittleJenisJerawat.text = data.classJerawat.toString()
-                                    tvDes.text = getString(R.string.desc_blackheads)
-                                    tvPenanganan1.text = getString(R.string.pen_blackheads_1)
-                                    tvPenanganan2.text = getString(R.string.pen_blackheads_2)
-                                    tvPenanganan3.text = getString(R.string.pen_blackheads_3)
-                                    tvPenanganan4.text = getString(R.string.pen_blackheads_4)
+                           with(binding.layoutDetailContent){
+                               showLoading(true)
+                               val data = it.data
+                               when (data?.predictedClass) {
+                                   // 0. Blackhead
+                                   0 -> {
+                                       tvTittleJenisJerawat.text = data.classJerawat.toString()
+                                       tvDes.text = getString(R.string.desc_blackheads)
+                                       tvPenanganan1.text = getString(R.string.pen_blackheads_1)
+                                       tvPenanganan2.text = getString(R.string.pen_blackheads_2)
+                                       tvPenanganan3.text = getString(R.string.pen_blackheads_3)
+                                       tvPenanganan4.text = getString(R.string.pen_blackheads_4)
 
-                                }
-                                // 1. Nodules
-                                1 -> {
-                                    tvTittleJenisJerawat.text = data.classJerawat.toString()
-                                    tvDes.text = getString(R.string.desc_nodules)
-                                    tvPenanganan1.text = getString(R.string.pen_nodules_1)
-                                    tvPenanganan2.text = getString(R.string.pen_nodules_1)
-                                    tvPenanganan3.text = getString(R.string.pen_nodules_1)
-                                    tvPenanganan4.text = getString(R.string.pen_nodules_1)
+                                   }
+                                   // 1. Nodules
+                                   1 -> {
+                                       tvTittleJenisJerawat.text = data.classJerawat.toString()
+                                       tvDes.text = getString(R.string.desc_nodules)
+                                       tvPenanganan1.text = getString(R.string.pen_nodules_1)
+                                       tvPenanganan2.text = getString(R.string.pen_nodules_1)
+                                       tvPenanganan3.text = getString(R.string.pen_nodules_1)
+                                       tvPenanganan4.text = getString(R.string.pen_nodules_1)
 
-                                }
-                                //    2. Papule
-                                2 -> {
-                                    tvTittleJenisJerawat.text = data.classJerawat.toString()
-                                    tvDes.text = getString(R.string.desc_papule)
-                                    tvPenanganan1.text = getString(R.string.pen_papule_1)
-                                    tvPenanganan2.text = getString(R.string.pen_papule_2)
-                                    tvPenanganan3.text = getString(R.string.pen_papule_3)
-                                    tvPenanganan4.text = getString(R.string.pen_papule_4)
+                                   }
+                                   //    2. Papule
+                                   2 -> {
+                                       tvTittleJenisJerawat.text = data.classJerawat.toString()
+                                       tvDes.text = getString(R.string.desc_papule)
+                                       tvPenanganan1.text = getString(R.string.pen_papule_1)
+                                       tvPenanganan2.text = getString(R.string.pen_papule_2)
+                                       tvPenanganan3.text = getString(R.string.pen_papule_3)
+                                       tvPenanganan4.text = getString(R.string.pen_papule_4)
 
-                                }
-                                //    3. Pustules
-                                3 -> {
-                                    tvTittleJenisJerawat.text = data.classJerawat.toString()
-                                    tvDes.text = getString(R.string.desc_pustules)
-                                    tvPenanganan1.text = getString(R.string.pen_pustules_1)
-                                    tvPenanganan2.text = getString(R.string.pen_pustules_2)
-                                    tvPenanganan3.text = getString(R.string.pen_pustules_3)
-                                    tvPenanganan4.text = getString(R.string.pen_pustules_4)
+                                   }
+                                   //    3. Pustules
+                                   3 -> {
+                                       tvTittleJenisJerawat.text = data.classJerawat.toString()
+                                       tvDes.text = getString(R.string.desc_pustules)
+                                       tvPenanganan1.text = getString(R.string.pen_pustules_1)
+                                       tvPenanganan2.text = getString(R.string.pen_pustules_2)
+                                       tvPenanganan3.text = getString(R.string.pen_pustules_3)
+                                       tvPenanganan4.text = getString(R.string.pen_pustules_4)
 
-                                }
-                                //    4. Whitehead
-                                4 -> {
-                                    tvTittleJenisJerawat.text = data.classJerawat.toString()
-                                    tvDes.text = getString(R.string.desc_whitehead)
-                                    tvPenanganan1.text = getString(R.string.pen_whitehead_1)
-                                    tvPenanganan2.text = getString(R.string.pen_whitehead_1)
-                                    tvPenanganan3.text = getString(R.string.pen_whitehead_1)
-                                    tvPenanganan4.text = getString(R.string.pen_whitehead_1)
+                                   }
+                                   //    4. Whitehead
+                                   4 -> {
+                                       tvTittleJenisJerawat.text = data.classJerawat.toString()
+                                       tvDes.text = getString(R.string.desc_whitehead)
+                                       tvPenanganan1.text = getString(R.string.pen_whitehead_1)
+                                       tvPenanganan2.text = getString(R.string.pen_whitehead_1)
+                                       tvPenanganan3.text = getString(R.string.pen_whitehead_1)
+                                       tvPenanganan4.text = getString(R.string.pen_whitehead_1)
 
-                                }
-                            }
+                                   }
+                               }
+                           }
+
                         }
                     }
                 }
@@ -275,8 +253,10 @@ class DetailFragment : Fragment() {
 
 
     private fun showBottomSheet(){
-        binding.extendedFabBuyRecomenProdcut.setOnClickListener {
-            findNavController().navigate(R.id.bottomSheetProductFragment)
+        with(binding.layoutDetailContent){
+            extendedFabBuyRecomenProdcut.setOnClickListener {
+                findNavController().navigate(R.id.bottomSheetProductFragment)
+            }
         }
     }
 

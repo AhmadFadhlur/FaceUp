@@ -10,6 +10,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="light_pink">#FB79A5</color>
+    <color name="light_sky_blue">#7AA0FF</color>
     <color name="sky_blue">#4CA1FB</color>
     <color name="pink_cardview">#FF66C4</color>
     <color name="red_warning">#FA0055</color>
@@ -17,4 +18,6 @@
     <color name="blue_logo">#0773AD</color>
     <color name="background_color_white">#ffffff</color>
     <color name="toska_variant">#0A1531</color>
+
+    <color name="shimmer_background">#dddddd</color>
 </resources>
