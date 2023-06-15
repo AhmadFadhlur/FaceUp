@@ -20,6 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:id="@+id/profileHome"
         android:layout_width="37dp"
         android:layout_height="50dp"
         android:layout_marginTop="28dp"
@@ -83,7 +84,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/textHallo"
-            app:layout_constraintVertical_bias="0.41000003">
+            app:layout_constraintVertical_bias="0.060000002">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -203,31 +204,31 @@
             android:textSize="11sp"
             tools:ignore="RtlCompat" />
     </androidx.cardview.widget.CardView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/cvKlinik"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="222dp"-->
-<!--            android:layout_marginTop="336dp"-->
-<!--            android:orientation="vertical"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintHorizontal_bias="0.342"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent">-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Artikel"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/codec"
+                android:layout_marginBottom="16dp" />
 
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:fontFamily="@font/codec"-->
-<!--                android:text="@string/artikel"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="30sp" />-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/article_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-<!--            <androidx.recyclerview.widget.RecyclerView-->
-<!--                android:id="@+id/rv_artikel"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content" />-->
-<!--        </LinearLayout>-->
-
+        </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navView: BottomNavigationView = findViewById(R.id.botNavView)
+        val navView: BottomNavigationView = findViewById(R.id.nav_view)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragContainerView) as NavHostFragment
         val navController = navHostFragment.navController
         val appBarConfiguration = AppBarConfiguration.Builder(
@@ -37,11 +37,11 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        binding.botNavView.background = null
-        setCamera()
+//        binding.navView.background = null
+//        setCamera()
     }
-
-    private fun setCamera(){
+//
+//    private fun setCamera(){
 //        binding.fabButtonCamera.setOnClickListener {
 //
 //            MaterialAlertDialogBuilder(this)
@@ -64,11 +64,11 @@ class MainActivity : AppCompatActivity() {
 //                }
 //                .show()
 //        }
-        binding.fabButtonCamera.setOnClickListener{
-            customDialog()
-        }
-
-    }
+//        binding.fabButtonCamera.setOnClickListener{
+//            customDialog()
+//        }
+//
+//    }
 
     private fun customDialog(){
         val dialog = Dialog(this)
