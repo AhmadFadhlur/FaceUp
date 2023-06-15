@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.homepage.HomePage">
-
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <ImageView
         android:layout_width="33dp"
         android:layout_height="38dp"
@@ -66,108 +69,165 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textHallo" />
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvImageSlider"
+            android:layout_width="357dp"
+            android:layout_height="245dp"
+            android:layout_margin="20dp"
+            android:layout_marginBottom="516dp"
+            android:backgroundTint="@color/pink_cardview"
+            app:cardCornerRadius="40dp"
+            app:cardElevation="7dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textHallo"
+            app:layout_constraintVertical_bias="0.41000003">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/codec"
+                android:lineSpacingExtra="10dp"
+                android:text="@string/sentuk_untuk_memulai_scan"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="110dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/barlow"
+                android:lineSpacingExtra="10dp"
+                android:text="@string/kenali_jerawatmu_cegah_agar_tidak_lebih_parah"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/stars" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/buttonFloatCam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/cameraicon" />
+
+            <ImageView
+                android:layout_width="106dp"
+                android:layout_height="101dp"
+                android:layout_gravity="bottom|end"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="9dp"
+                android:src="@drawable/icon_mbamba" />
+        </androidx.cardview.widget.CardView>
+
     <androidx.cardview.widget.CardView
-        android:id="@+id/cvImageSlider"
-        android:layout_width="357dp"
-        android:layout_height="245dp"
-        android:layout_margin="20dp"
-        android:layout_marginBottom="516dp"
-        app:cardCornerRadius="40dp"
-        app:cardElevation="7dp"
-        android:backgroundTint="@color/pink_cardview"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/textHallo"
-        app:layout_constraintVertical_bias="0.17000002">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:fontFamily="@font/codec"
-            android:textSize="30sp"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:lineSpacingExtra="10dp"
-            android:text="@string/sentuk_untuk_memulai_scan"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:fontFamily="@font/barlow"
-            android:textSize="12sp"
-            android:text="@string/kenali_jerawatmu_cegah_agar_tidak_lebih_parah"
-            android:layout_marginTop="110dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:lineSpacingExtra="10dp"
-            />
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/stars"/>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/buttonFloatCam"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginStart="20dp"
-            android:layout_marginBottom="10dp"
-            android:backgroundTint="@color/white"
-            android:src="@drawable/cameraicon" />
-
-        <ImageView
-            android:layout_width="106dp"
-            android:layout_height="101dp"
-            android:layout_gravity="bottom|end"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="9dp"
-            android:src="@drawable/icon_mbamba" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/cvKlinik"
         android:layout_width="174dp"
-        android:layout_height="81dp"
+        android:layout_height="90dp"
         android:layout_marginStart="7dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="27dp"
-        app:cardBackgroundColor="@color/light_pink"
+        app:cardBackgroundColor="@color/sky_blue"
         app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/cardView2"
+        app:layout_constraintStart_toEndOf="@+id/cvKonsul"
         app:layout_constraintTop_toBottomOf="@+id/cvImageSlider" >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:text="Informasi Tentang Jenis Jerawat"
-            android:fontFamily="@font/codec"
-            android:layout_marginTop="10dp"
+
+
+        <ImageView
             android:layout_marginStart="10dp"
-            android:textAlignment="textStart"
-            android:textColor="@color/white"
-            />
+            android:layout_width="81dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/klinik" />
+        <TextView
+            android:layout_width="91dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="end"
+            android:background="@drawable/bg_nav_bar"
+            android:fontFamily="@font/codec"
+            android:text="@string/klinik_terdekat"
+            android:textAlignment="center"
+            android:textColor="@color/blue_logo"
+            android:textSize="11sp"
+            tools:ignore="RtlCompat" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
+        android:id="@+id/cvKonsul"
         android:layout_width="174dp"
-        android:layout_height="81dp"
+        android:layout_height="90dp"
         android:layout_marginStart="29dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="7dp"
         app:cardBackgroundColor="@color/light_pink"
         app:cardCornerRadius="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/cardView"
+        app:layout_constraintEnd_toStartOf="@+id/cvKlinik"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cvImageSlider" />
+        app:layout_constraintTop_toBottomOf="@+id/cvImageSlider" >
+
+
+
+        <ImageView
+            android:layout_width="84dp"
+            android:layout_height="90dp"
+            android:src="@drawable/konsul" />
+
+        <TextView
+            android:layout_width="113dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="end"
+            android:background="@drawable/bg_nav_bar"
+            android:fontFamily="@font/codec"
+            android:lineSpacingExtra="5dp"
+            android:text="@string/konsultasi_dengan_dokter"
+            android:textAlignment="center"
+            android:textColor="@color/blue_logo"
+            android:textSize="11sp"
+            tools:ignore="RtlCompat" />
+    </androidx.cardview.widget.CardView>
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="222dp"-->
+<!--            android:layout_marginTop="336dp"-->
+<!--            android:orientation="vertical"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.342"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:fontFamily="@font/codec"-->
+<!--                android:text="@string/artikel"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="30sp" />-->
+
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/rv_artikel"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content" />-->
+<!--        </LinearLayout>-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

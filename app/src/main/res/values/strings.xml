@@ -28,4 +28,9 @@
     <string name="history">History</string>
     <string name="sentuk_untuk_memulai_scan">Sentuk Untuk Memulai Scan</string>
     <string name="kenali_jerawatmu_cegah_agar_tidak_lebih_parah">Kenali Jerawatmu Cegah Agar Tidak Lebih Parah!</string>
+    <string name="cautionText">Agar Mendapatkan Hasil Yang lebih Akurat Ambillah Foto Sedekat Mungkin Dengan Jerawatnya!</string>
+    <string name="ok">Ok</string>
+    <string name="konsultasi_dengan_dokter">Konsultasi Dokter</string>
+    <string name="klinik_terdekat">Klinik Terdekat</string>
+    <string name="artikel">Artikel</string>
 </resources>
