@@ -1,5 +1,6 @@
 package com.example.faceup.ui.detail
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -23,6 +24,7 @@ class DetailViewModel(private val repository: DataRepository) : ViewModel() {
             val response = repository.postPredict(image)
             viewModelScope.launch (Dispatchers.Main){
                 _detail.postValue(response)
+                Log.e("PostPredict", "berhasil")
             }
         }
     }

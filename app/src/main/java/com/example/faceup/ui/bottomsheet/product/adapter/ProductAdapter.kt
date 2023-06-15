@@ -1,4 +1,4 @@
-package com.example.faceup.ui.bottomsheet.adapter
+package com.example.faceup.ui.bottomsheet.product.adapter
 
 import android.view.LayoutInflater
 import android.view.View

@@ -82,6 +82,9 @@
         <action
             android:id="@+id/action_homePage_to_detailFragment22"
             app:destination="@id/detailFragment2" />
+        <action
+            android:id="@+id/action_homePage_to_bottomSheetChoosePictureFragment"
+            app:destination="@id/bottomSheetChoosePictureFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -106,14 +109,27 @@
         <action
             android:id="@+id/action_detailFragment2_to_bottomSheetProductFragment"
             app:destination="@id/bottomSheetProductFragment" />
+        <argument
+            android:name="flag"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
     <dialog
         android:id="@+id/bottomSheetProductFragment"
-        android:name="com.example.faceup.ui.bottomsheet.BottomSheetProductFragment"
+        android:name="com.example.faceup.ui.bottomsheet.product.BottomSheetProductFragment"
         android:label="BottomSheetProductFragment" />
     <activity
         android:id="@+id/homePageActivity"
         android:name="com.example.faceup.ui.activity.HomePageActivity"
         android:label="activity_home_page"
         tools:layout="@layout/activity_home_page" />
+    <dialog
+        android:id="@+id/bottomSheetChoosePictureFragment"
+        android:name="com.example.faceup.ui.bottomsheet.picture.BottomSheetChoosePictureFragment"
+        android:label="fragment_bottom_sheet_choose_picture"
+        tools:layout="@layout/fragment_bottom_sheet_choose_picture" >
+        <action
+            android:id="@+id/action_bottomSheetChoosePictureFragment_to_detailFragment2"
+            app:destination="@id/detailFragment2" />
+    </dialog>
 </navigation>

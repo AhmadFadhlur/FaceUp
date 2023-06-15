@@ -1,8 +1,12 @@
 package com.example.faceup.ui.homepage
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -33,12 +37,27 @@ class HomePage : Fragment() {
         val nama = navArgs.name.toString()
         binding.tvName.text = nama
         setBottomNav()
-        moveToDetail()
+        moveToDetail ()
+
+    }
+
+    private fun customDialog(){
+        val dialog = Dialog(requireContext())
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.setContentView(R.layout.custom_dialog)
+
+        val btnOk = dialog.findViewById<Button>(R.id.buttonOke)
+        btnOk.setOnClickListener{
+            dialog.dismiss()
+            findNavController().navigate(R.id.bottomSheetChoosePictureFragment)
+        }
+        dialog.show()
     }
 
     private fun moveToDetail (){
         binding.buttonFloatCam.setOnClickListener {
-            findNavController().navigate(R.id.detailFragment2)
+            customDialog()
         }
     }
 

@@ -1,4 +1,4 @@
-package com.example.faceup.ui.bottomsheet
+package com.example.faceup.ui.bottomsheet.product
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.faceup.R
 import com.example.faceup.databinding.FragmentBottomSheetProductBinding
-import com.example.faceup.ui.bottomsheet.adapter.ProductAdapter
+import com.example.faceup.ui.bottomsheet.product.adapter.ProductAdapter
 import com.example.faceup.utils.Product
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
